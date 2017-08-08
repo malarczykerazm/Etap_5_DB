@@ -1,133 +1,173 @@
-show databases;
 use car_rental_company;
-show tables;
+/*
 select * from address;
 select * from customer;
+*/
 
-update address set ID = 22 where ID = 4;
-delete from address where ID = 2;
-ALTER TABLE address AUTO_INCREMENT = 2;
+delete from address where id < 100;
+ALTER TABLE address AUTO_INCREMENT = 1;
 
 /** -------------------- AGENCYS' ADDRESSES -------------------- **/
 insert into address(number, street, postcode, city, country)
 values (1, "Kirkmanshulme Ln", "M12 4WB", "Manchester", "UK");
-/**Greyhound Stadium,
-Kirkmanshulme Lane,Gorton,
-Manchester, M18 7BA.
-Tel: 0161 877 8908**/
 
-/**insert into address(number, street, postcode, city, country)
+insert into address(number, street, postcode, city, country)
 values (377, "Alwalton St", "PE2 0XE", "Peterborough", "UK");
-East of England Showground, 
-Alwalton,
-Peterborough, PE2 0XE.
-Tel: 01384 635948**/
 
 insert into address(number, street, postcode, city, country)
 values (312, "Ashey Rd", "PO33 4BH", "Isle of Wight", "UK");
-/**Smallbrook Stadium, 
-Ashey Road, Ryde, 
-Isle of Wight, PO33 4BH
-Tel: 01983 811180**/
 
 insert into address(number, street, postcode, city, country)
 values (101, "Wimborne Rd", "BH15 2BP", "Poole", "UK");
-/**The Stadium, 
-Wimborne Road, Poole,
-Dorset, BH15 2BP.
-Tel: 01202 681145**/
 
-/**insert into address(number, street, postcode, city, country)
+insert into address(number, street, postcode, city, country)
 values (18, "Lady Ln", "SN25 4DN", "Swindon", "UK");
-Abbey Stadium, 
-Lady Lane, Blunsdon,
-Swindon, SN25 4DN.
-Tel: 07003 921235**/
 
-/**insert into address(number, street, postcode, city, country)
-values (90, "Arterial Rd", "RM19 1NX", "Essex", "UK");
-Arena-Essex Raceway, 
-A1306 Arterial Road, Thurrock,
-Essex, RM19 1NX.
-Tel: 01708 863443**/
-
-/**insert into address(number, street, postcode, city, country)
+insert into address(number, street, postcode, city, country)
 values (76, "Rye Rd", "EN11 0EH", "Hoddeson", "UK");
-/**Rye House Stadium, 
-Rye Road, Hoddeson,
-Hertfordshire, EN11 0EH.
-Tel: 01992 440400**/
-
-/**insert into address(number, street, postcode, city, country)
-values (76, "Saddlebow Rd", "PE34 3AG", "Norfolk", "UK");
-The Stadium
-Saddlebow Road, Kings Lynn
-Norfolk, PE34 3AG
-Tel: 01553 771111**/
 
 insert into address(number, street, postcode, city, country)
 values (45, "Rugby Rd", "CV8 3GJ", "Coventry", "UK");
-/**Coventry Stadium, 
-Rugby Road, Brandon, 
-Coventry CV8 3GJ.
-Tel: 02476 540400**/
 
-/**insert into address(number, street, postcode, city, country)
+/** -------------------- CUSTOMERS' ADDRESSES -------------------- **/
+insert into address(number, street, postcode, city, country)
 values (23, "Sutherland Av", "WV2 2JJ", "Wolverhampton", "UK");
-Monmore Green Stadium, 
-Sutherland Avenue, Monmore Green,
-Wolverhampton, WV2 2JJ.
-Tel: 01902 870400**/
 
 insert into address(number, street, postcode, city, country)
 values (54, "Penistone Rd", "S6 2DE", "Sheffield", "UK");
-/**Sheffield Sports Stadium, 
-Penistone Road,
-Sheffield, S6 2DE.
-Tel: 0114 285 3142**/
-
-/**insert into address(number, street, postcode, city, country)
-values (12, "Hailsham Rd", "BN27 3RE", "East Sussex", "UK");
-Arlington Stadium, 
-Hailsham Road West, 
-East Sussex, BN27 3RE.
-Tel: 01323 841642**/
 
 insert into address(number, street, postcode, city, country)
 values (18, "Fossway Rd", "NE6 2XJ", "Newcastle", "UK");
-/**Brough Park, 
-Fossway, Byker,
-Newcastle-uon-Tyne, NE6 2XJ.
-Tel: 0191 265 6581**/
 
 insert into address(number, street, postcode, city, country)
 values (82, "Hawthorn St", "G22 6RU", "Glasgow", "UK");
-/**Ashfield Stadium, 
-Saracen Park, Hawthorn Street, 
-Possilpark, Glasgow, G22 6RU.
-Tel: 0141 849 6088**/
 
 insert into address(number, street, postcode, city, country)
 values (11, "Bathgate Rd", "EH48 2PD", "Edinburgh", "UK");
-/**Armadale Stadium, 
-Bathgate Road, Armadale
-West Lothian, EH48 2PD.
-Tel: 01501 734 404**/
-
-
-/** -------------------- CUSTOMERS' ADDRESSES -------------------- **/
 
 insert into address(number, street, postcode, city, country)
-values (10, "Piccadilly Circus", "W1J 9HS", "London", "UK");
+values ("16A", "Abbey Road", "NW8 9BD", "London", "UK");
 
 insert into address(number, street, postcode, city, country)
-values (112, "Downing St", "SW1A 2AA", "London", "UK");
+values ("443", "Aldborough Road South", "IG3 8JN", "Ilford", "UK");
 
 insert into address(number, street, postcode, city, country)
-values (228, "Princess St", "EH1 2EW", "Edinburgh", "UK");
+values ("7", "Wells Road", "BS27 3SW", "Cheddar", "UK");
 
 insert into address(number, street, postcode, city, country)
-values (89, "Craiglea Dr", "EH10 5PF", "Edinburgh", "UK");
+values ("11", "Parkins Garth", "DL8 3HD", "Leyburn", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("1", "The Hill", "DG16 5HG", "Dumfries and Galloway", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("43", "Grafton Way", "W1T 5DG", "London", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("60", "Purser Road", "NN1 4PQ", "Northampton", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("15", "Lytham Avenue", "S25 2TB", "Sheffield", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("22", "Nant Hall Road", "LL19 9LN", "Prestatyn", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("15", "Great Percy Street", "WC1X 9RD", "London", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("39", "Westray Street", "TS13 4EL", "Saltburn-by-the-Sea", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("128", "West End Road", "UB1 1JN", "Southall", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("14", "Park Lane", "TF6 6BA", "Telford", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("28", "Earlsway", "NE11", "Tyne and Wear", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("2", "Howes Road", "AB16 7RH", "Aberdeen City", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("21", "Batsmans Drive", "NN10 6EW", "Rushden", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("B8035", "Isle of Mull", "PA68 6EJ", "Scotland", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("99", "Shakespeare Street", "PR8 5AJ", "Southport", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("44-64", "Severn Way", "MK3", "Milton Keynes", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("175", "Sarehole Road", "B28 8EL", "Birmingham", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("17", "Brunel Close", "CF82 8HT", "Hengoed", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("1", "Beath Grove", "TS25 3BY", "Hartlepool", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("18", "Pine View", "DT6 5AE", "Bridport", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("7", "Farmview Close", "L27 1XZ", "Liverpool", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("2", "Bank Street", "NP19 7HF", "Newport", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("2", "Woodview Terrace", "SA10", "Neath Port Talbot", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("1", "Iberian Way", "GU15 1LU", "Camberley", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("18", "Vowels Lane", "RH19 4LD", "West Sussex", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("221", "Guildford Road", "GU18 5RE", "Lightwater", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("50", "Fernicombe Road", "TQ3 3XD", "Paignton", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("11", "Ennis Close", "AL5 1SS", "Harpenden", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("114", "Bruce Grove", "N17 6UR", "London", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("12", "Marygate", "TD15 1BN", "Berwick-upon-Tweed", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("8", "Nether Court", "DG5 4EY", "Dalbeattie", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("5-7", "Wood End", "UB3 2SB", "Hayes", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("4", "Chapel Street", "WV2 3EU", "Wolverhampton", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("7", "Sandylands Drive", "M25 9SH", "Manchester", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("7A", "Glenferness Avenue", "BH4 9ND", "Bournemouth", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("1B", "Tiree Avenue", "PA4 0EP", "Renfrew", "UK");
+
+insert into address(number, street, postcode, city, country)
+values ("4", "Leithhead", "EH27 8DJ", "Edinburgh", "UK");
+
+
+
+select * from address;
 
 
 
@@ -136,11 +176,7 @@ values (89, "Craiglea Dr", "EH10 5PF", "Edinburgh", "UK");
 
 
 
-
-
-
-
-
+/*
 
 
 
@@ -165,3 +201,4 @@ insert into customer(name, surname, date_of_birth, telephone, email, corresponde
 values ("Julia", "Harris", "1990-07-15", 907578432, "juliaharris@london.co.uk", 3, 3);
 
 delete from customer where ID in (1,2);
+*/
