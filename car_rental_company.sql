@@ -1,3 +1,112 @@
+CREATE DATABASE CarRentalCompany;
+
+CREATE TABLE `CarRentalCompany`.`Addresses` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `number` VARCHAR(10) NOT NULL,
+  `street` VARCHAR(45) NOT NULL,
+  `postcode` VARCHAR(10) NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  `country` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+  
+  CREATE TABLE `CarRentalCompany`.`ContactData` (
+   `ID` INT NOT NULL AUTO_INCREMENT,
+  `phone` VARCHAR(15) NOT NULL,
+  `email` VARCHAR(45),
+  PRIMARY KEY (`ID`));
+  
+  CREATE TABLE `CarRentalCompany`.`Agencies` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `addressID` INT NOT NULL,
+  `contactID` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (addressID) REFERENCES Addresses(ID),
+  FOREIGN KEY (contactID) REFERENCES ContactData(ID));
+  
+  CREATE TABLE `CarRentalCompany`.`Positions` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `positionName` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+  
+  CREATE TABLE `CarRentalCompany`.`Employees` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` CHAR NOT NULL,
+  `surname` CHAR NOT NULL,
+  `dateOfBirth` DATE NOT NULL,
+  `agencyID` INT NOT NULL,
+  `addressID` INT NOT NULL,
+  `positionID` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (agencyID) REFERENCES Agencies(ID),
+  FOREIGN KEY (addressID) REFERENCES Address(ID),
+  FOREIGN KEY (positionID) REFERENCES Positions(ID));
+  
+  CREATE TABLE `CarRentalCompany`.`Customers` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` CHAR NOT NULL,
+  `surname` CHAR,
+  `dateOfBirth` DATE,
+  `agencyID` INT NOT NULL,
+  `correspondenceAddressID` INT NOT NULL,
+  `receiptAddressID` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (contactID) REFERENCES ContactData(ID),
+  FOREIGN KEY (correspondenceAddressID) REFERENCES Address(ID),
+  FOREIGN KEY (receiptAddressID) REFERENCES Address(ID));
+  
+  CREATE TABLE `CarRentalCompany`.`CreditCards` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `customerID` INT NOT NULL,
+  `number` INT NOT NULL,
+  `expirationDate` DATE,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (customerID) REFERENCES Customers(ID));
+
+CREATE TABLE `CarRentalCompany`.`CarStatuses` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+
+  CREATE TABLE `CarRentalCompany`.`Cars` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `statusID` INT NOT NULL,
+  `type` VARCHAR(25) NOT NULL,
+  `brand` VARCHAR(45) NOT NULL,
+  `model` VARCHAR(45) NOT NULL,
+  `productionYear` INT NOT NULL,
+  `colour` VARCHAR(45) NOT NULL,
+  `engineVolume` INT NOT NULL,
+  `power` INT NOT NULL,
+  `mileage` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (statusID) REFERENCES CarStatuses(ID));
+  
+  CREATE TABLE `CarRentalCompany`.`RentalData` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `customerID` INT NOT NULL,
+  `carID` INT NOT NULL,
+  `dateSince` DATE NOT NULL,
+  `dateTo` DATE NOT NULL,
+  `fromAgencyID` INT NOT NULL,
+  `toAgencyID` INT NOT NULL,
+  `price` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (customerID) REFERENCES Customers(ID),
+  FOREIGN KEY (carID) REFERENCES Cars(ID),
+  FOREIGN KEY (fromAgencyID) REFERENCES Agencies(ID),
+  FOREIGN KEY (toAgencyID) REFERENCES Agencies(ID));
+  
+  CREATE TABLE `CarRentalCompany`.`CarSupervisors` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `employeeID` INT NOT NULL,
+  `carID` INT NOT NULL,
+  `dateSince` DATE NOT NULL,
+  `dateTo` DATE NOT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (employeeID) REFERENCES Employees(ID),
+  FOREIGN KEY (carID) REFERENCES Cars(ID));
+  
+  
 use car_rental_company;
 /*
 select * from address;
@@ -23,13 +132,13 @@ values (101, "Wimborne Rd", "BH15 2BP", "Poole", "UK");
 insert into address(number, street, postcode, city, country)
 values (18, "Lady Ln", "SN25 4DN", "Swindon", "UK");
 
+/** -------------------- CUSTOMERS' ADDRESSES -------------------- **/
 insert into address(number, street, postcode, city, country)
 values (76, "Rye Rd", "EN11 0EH", "Hoddeson", "UK");
 
 insert into address(number, street, postcode, city, country)
 values (45, "Rugby Rd", "CV8 3GJ", "Coventry", "UK");
 
-/** -------------------- CUSTOMERS' ADDRESSES -------------------- **/
 insert into address(number, street, postcode, city, country)
 values (23, "Sutherland Av", "WV2 2JJ", "Wolverhampton", "UK");
 
@@ -169,10 +278,9 @@ values ("4", "Leithhead", "EH27 8DJ", "Edinburgh", "UK");
 
 select * from address;
 
-
-
-
-
+ALTER TABLE customeraddress
+ADD CONSTRAINT employeeAgancyID FOREIGN KEY (agancyID)
+REFERENCES agancy(ID);
 
 
 
