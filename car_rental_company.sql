@@ -417,6 +417,3 @@ insert into employees (name, surname, dateOfBirth, agencyID, addressID, position
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Leesa', 'Ketteridge', '1967-05-25', 3, 23, 3);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Sylvester', 'Blay', '1967-06-19', 1, 1, 1);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Melonie', 'Gellately', '1986-10-05', 1, 24, 2);
-
-select * from employees;
-select * from employees where positionID = 4;
