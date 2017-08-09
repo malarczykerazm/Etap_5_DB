@@ -21,7 +21,7 @@ public class Address {
 
 		while (input.hasNextLine()) {
 			i++;
-			System.out.println("insert into addresses(number, street, postcode, city, country)");
+			System.out.print("insert into addresses(number, street, postcode, city, country) ");
 			afterComma = input.nextLine().split(",");
 			number = afterComma[2];
 			street = afterComma[3];

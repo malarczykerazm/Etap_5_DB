@@ -78,7 +78,7 @@ CREATE TABLE `car_rental_company`.`car_statuses` (
   `model` VARCHAR(45) NOT NULL,
   `productionYear` INT NOT NULL,
   `colour` VARCHAR(45) NOT NULL,
-  `engineVolume` DECIMAl NOT NULL,
+  `engineVolume` DECIMAl(2,1) NOT NULL,
   `power` INT NOT NULL,
   `mileage` INT NOT NULL,
   `plateNumber` VARCHAR(7),
@@ -124,7 +124,7 @@ insert into addresses (number, street, postcode, city, country) values ('101', '
 
 insert into addresses (number, street, postcode, city, country) values ('18', 'Lady Ln', 'SN25 4DN', 'Swindon', 'UK');
 
-/** -------------------- CUSTOMERS' ADDRESSES -------------------- **/
+/** -------------------- OTHER ADDRESSES -------------------- **/
 insert into addresses (number, street, postcode, city, country) values ('76', 'Rye Rd', 'EN11 0EH', 'Hoddeson', 'UK');
 
 insert into addresses (number, street, postcode, city, country) values ('377', 'Alwalton St', 'PE2 0XE', 'Peterborough', 'UK');
@@ -433,13 +433,13 @@ insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactI
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Aubrey', 'Goodnow', '1955-06-08', 1, 7, 10, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Nara', 'Heckner', '1999-07-26', 2, 10, 11, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Simona', 'Sleford', '1998-12-10', 2, 25, 12, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Betta', 'Enderwick', '1991-01-21', 2, 11, 13, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Betta', 'oFriendly', '1991-01-21', 2, 11, 13, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Odilia', 'Cumming', '1954-03-20', 2, 13, 14, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Arnaldo', 'Puddan', '1988-02-27', 4, 15, 15, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Theadora', 'Sketchley', '1985-12-16', 1, 14, 16, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Earle', 'Jakobsson', '1979-06-14', 4, 12, 17, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Bernie', 'Jakobsson', '1985-09-26', 4, 12, 18, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Ingrid', 'Ulster', '1969-07-08', 3, 19, 19, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Ingrid', 'oFeal', '1969-07-08', 3, 19, 19, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Ardene', 'Twinberrow', '1955-07-09', 4, 17, 20, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Denys', 'Tamplin', '1995-07-31', 4, 16, 21, 4);
 insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Rickert', 'McIlhagga', '1968-07-08', 4, 20, 22, 4);
@@ -556,3 +556,137 @@ insert into credit_cards (customerID, number, expirationDate) values (46, 101322
 insert into car_statuses (status) values ('free');
 insert into car_statuses (status) values ('loaned');
 insert into car_statuses (status) values ('missing');
+
+/* ########################################################################## CARS ##########################################################################  */
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Mazda', 'MPV', 1994, 'Aquamarine', 1.3, 117, 39521, 'CV48673');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Saab', '9-7X', 2008, 'Red', 2.2, 117, 62543, 'CV23362');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'SUV', 'Fairthorpe', 'Rockette', 1960, 'Teal', 1.9, 149, 35485, 'ED56977');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'hatchback', 'Ford', 'E-Series', 1995, 'Aquamarine', 1.6, 81, 49859, 'MN35086');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'compact', 'Honda', 'Accord', 2000, 'Maroon', 2.4, 152, 59101, 'GL59491');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'sport', 'Toyota', 'Sienna', 2010, 'Red', 2.0, 195, 54694, 'CV67200');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Lexus', 'IS', 2005, 'Indigo', 2.1, 114, 25747, 'ED62948');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'hatchback', 'Dodge', 'Ram 2500 Club', 1998, 'Orange', 2.5, 190, 39116, 'CV70691');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Chevrolet', 'Tahoe', 2013, 'Orange', 2.0, 141, 55076, 'IW66961');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Chevrolet', 'Corvette', 2007, 'Red', 2.2, 169, 10253, 'IW37781');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Mazda', 'B-Series', 1987, 'Aquamarine', 1.7, 217, 44262, 'PO40837');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Chevrolet', 'Corvette', 1962, 'Orange', 1.5, 139, 57684, 'ED43417');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'SUV', 'Acura', 'NSX', 2001, 'Yellow', 1.6, 151, 45610, 'ED87350');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (3, 'sport', 'Audi', '5000S', 1986, 'Puce', 1.1, 138, 49941, 'CV19350');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'compact', 'Ford', 'Excursion', 2005, 'Teal', 2.2, 214, 23029, 'IW29866');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'crossover', 'Dodge', 'Grand Caravan', 1995, 'Puce', 1.0, 218, 61304, 'PO45878');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'luxury', 'Fillmore', 'Fillmore', 1960, 'Indigo', 2.2, 92, 38379, 'LN61188');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Nissan', 'Pathfinder', 2007, 'Purple', 2.1, 162, 20925, 'ED41289');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'pickup', 'Chrysler', '200', 2011, 'Turquoise', 2.0, 179, 20402, 'IW27203');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'minivan', 'Ford', 'Ranger', 2011, 'Maroon', 2.2, 158, 57828, 'GL66842');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'hatchback', 'Ford', 'GT', 2005, 'Aquamarine', 1.1, 163, 47310, 'SW71133');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Infiniti', 'FX', 2011, 'Pink', 2.2, 90, 60532, 'LN41612');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'sport', 'Audi', '4000s Quattro', 1986, 'Aquamarine', 1.4, 177, 11063, 'GL62179');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Subaru', 'Impreza', 2012, 'Blue', 1.6, 162, 16171, 'IW34188');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'Ford', 'Expedition', 2006, 'Pink', 1.1, 152, 34143, 'CV17691');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'pickup', 'Suzuki', 'Forenza', 2006, 'Violet', 2.4, 131, 45792, 'CV81968');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Mercury', 'Grand Marquis', 1996, 'Turquoise', 2.3, 211, 44983, 'IW25101');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'SUV', 'Pontiac', 'Grand Prix', 1999, 'Maroon', 1.7, 196, 50393, 'GL20596');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'luxury', 'Chevrolet', 'Volt', 2012, 'Orange', 2.0, 220, 40313, 'GL62753');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Chevrolet', 'Suburban 2500', 2007, 'Red', 2.5, 128, 26834, 'ED64917');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'luxury', 'Chevrolet', 'Beretta', 1995, 'Teal', 2.3, 219, 38220, 'PO57058');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'compact', 'Saab', '900', 1989, 'Mauv', 0.9, 91, 57895, 'MN79242');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Isuzu', 'Ascender', 2009, 'Red', 1.4, 107, 12830, 'CV63836');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Pontiac', 'Firebird', 1994, 'Maroon', 0.9, 212, 37138, 'ED47571');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Cadillac', 'Escalade ESV', 2011, 'Yellow', 2.3, 216, 10504, 'ED33344');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Lincoln', 'Town Car', 2000, 'Yellow', 1.2, 93, 12055, 'ED53933');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Chrysler', 'Cirrus', 1996, 'Green', 1.1, 110, 40528, 'PO35707');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'hatchback', 'Oldsmobile', 'Alero', 1999, 'Purple', 1.2, 196, 59699, 'PO58065');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Chevrolet', 'Silverado 2500', 2000, 'Goldenrod', 2.5, 141, 62678, 'MN22622');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Scion', 'xD', 2011, 'Red', 1.1, 140, 54616, 'IW21881');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'coupe', 'Chevrolet', 'Lumina APV', 1992, 'Orange', 1.1, 198, 29568, 'MN82565');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Jaguar', 'XJ Series', 1994, 'Pink', 2.5, 153, 33468, 'IW59654');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'minivan', 'Pontiac', 'Bonneville', 2000, 'Mauv', 1.9, 82, 52223, 'IW20789');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Volkswagen', 'Routan', 2009, 'Pink', 1.7, 150, 22531, 'IW25593');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'hatchback', 'Pontiac', 'Firefly', 1992, 'Violet', 2.1, 136, 33496, 'PO18303');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Mercury', 'Cougar', 1989, 'Teal', 1.8, 116, 16297, 'LN20720');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'SUV', 'Lincoln', 'MKS', 2012, 'Aquamarine', 1.6, 89, 26737, 'IW28546');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Cadillac', 'Fleetwood', 1996, 'Red', 2.0, 83, 60700, 'LN76152');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'SUV', 'Honda', 'Accord', 1983, 'Pink', 2.0, 128, 58965, 'CV48431');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Oldsmobile', '88', 1996, 'Khaki', 1.9, 206, 23445, 'ED76341');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Mercedes-Benz', 'CLS-Class', 2010, 'Yellow', 1.5, 118, 62814, 'GL80057');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Audi', '5000S', 1987, 'Crimson', 1.5, 176, 37473, 'GL33490');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'compact', 'Toyota', '4Runner', 1994, 'Fuscia', 1.9, 90, 60964, 'SW45151');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Lotus', 'Elise', 2009, 'Green', 1.6, 146, 43719, 'ED48626');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'hatchback', 'Ford', 'Transit Connect', 2013, 'Green', 1.4, 143, 41706, 'PO49708');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Pontiac', 'Bonneville', 1965, 'Fuscia', 2.3, 89, 43318, 'SW22156');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'Saturn', 'S-Series', 1999, 'Puce', 1.0, 88, 43436, 'IW49713');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'crossover', 'Maserati', 'GranSport', 2005, 'Orange', 1.2, 140, 15388, 'GL70465');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Audi', 'A8', 1998, 'Orange', 2.2, 192, 40952, 'IW15920');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Dodge', 'D150', 1993, 'Red', 2.2, 94, 22876, 'LN48443');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'minivan', 'Honda', 'Insight', 2004, 'Aquamarine', 1.6, 197, 30187, 'IW68620');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'Ford', 'F350', 2004, 'Teal', 1.2, 151, 31285, 'ED21926');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'BMW', 'Z3', 2002, 'Fuscia', 1.7, 111, 39049, 'GL68152');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'luxury', 'Mazda', 'MX-3', 1992, 'Green', 1.6, 148, 61699, 'LN38688');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Dodge', 'Dakota', 2010, 'Goldenrod', 2.3, 144, 29938, 'SW74470');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'coupe', 'Honda', 'Odyssey', 2009, 'Teal', 2.2, 185, 16602, 'PO51090');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'Pontiac', 'Firefly', 1995, 'Blue', 1.5, 147, 23343, 'SW56731');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Toyota', 'Tacoma', 2001, 'Violet', 1.3, 102, 62227, 'LN78026');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Dodge', 'Dakota Club', 1993, 'Purple', 2.2, 202, 39784, 'PO63249');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'GMC', '3500', 1993, 'Turquoise', 2.2, 97, 11258, 'LN18701');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'SUV', 'Pontiac', 'Firebird Trans Am', 1986, 'Indigo', 1.0, 203, 39610, 'CV86907');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'compact', 'Nissan', 'Sentra', 1991, 'Red', 2.4, 171, 19496, 'IW84861');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'sport', 'Mazda', 'RX-7', 1994, 'Teal', 1.6, 182, 31140, 'CV21612');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Lincoln', 'Town Car', 2001, 'Purple', 2.3, 202, 49067, 'IW17673');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Audi', 'S6', 2009, 'Crimson', 1.1, 135, 23200, 'IW15578');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Dodge', 'Ram 2500 Club', 1997, 'Blue', 2.5, 81, 61206, 'GL41836');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'family', 'BMW', 'Z4', 2011, 'Crimson', 1.1, 196, 13032, 'GL63330');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Mazda', 'MX-6', 1996, 'Turquoise', 1.3, 173, 19656, 'ED19126');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'GMC', 'Yukon XL 2500', 2009, 'Maroon', 2.5, 206, 63926, 'GL19453');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Ford', 'Thunderbird', 1993, 'Mauv', 1.3, 165, 35347, 'ED87167');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'hatchback', 'Toyota', 'Venza', 2010, 'Yellow', 1.7, 168, 54868, 'CV51354');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'SUV', 'Suzuki', 'Sidekick', 1989, 'Turquoise', 1.0, 97, 38358, 'MN27360');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'SUV', 'Subaru', 'XT', 1990, 'Orange', 2.2, 96, 31810, 'CV86060');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'Dodge', 'Colt', 1993, 'Khaki', 1.1, 90, 43915, 'MN17755');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Honda', 'Passport', 2001, 'Turquoise', 1.3, 112, 15969, 'CV38128');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'coupe', 'Mitsubishi', 'Pajero', 1986, 'Mauv', 2.0, 106, 31161, 'SW38853');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'compact', 'Chevrolet', 'Corvette', 1969, 'Aquamarine', 1.3, 205, 56615, 'ED20849');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'hatchback', 'Ford', 'Explorer', 2012, 'Blue', 2.3, 95, 53639, 'LN67645');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'pickup', 'Buick', 'Rendezvous', 2004, 'Purple', 0.9, 207, 31165, 'SW20645');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Kia', 'Optima', 2008, 'Khaki', 1.0, 189, 11149, 'CV63183');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Chrysler', 'Concorde', 1996, 'Khaki', 2.0, 87, 10078, 'ED51858');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Pontiac', 'Grand Prix', 2005, 'Mauv', 2.5, 106, 60447, 'PO77021');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'coupe', 'Geo', 'Tracker', 1993, 'Indigo', 1.5, 95, 48634, 'SW38474');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'compact', 'Cadillac', 'DeVille', 1995, 'Teal', 1.0, 176, 40667, 'IW23515');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Isuzu', 'Rodeo', 2000, 'Violet', 2.4, 141, 60836, 'ED19839');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'SUV', 'Chevrolet', 'Express 2000', 1999, 'Mauv', 2.0, 132, 13597, 'IW24124');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Mazda', 'B-Series', 1999, 'Fuscia', 2.5, 151, 49287, 'GL52412');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'sport', 'Chrysler', 'Town & Country', 1999, 'Crimson', 1.4, 131, 26062, 'SW66151');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Pontiac', 'Grand Prix', 1989, 'Blue', 1.4, 134, 63842, 'CV58491');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Subaru', 'Outback', 2005, 'Maroon', 2.2, 91, 17373, 'CV39182');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'compact', 'Mitsubishi', 'Lancer', 2008, 'Crimson', 1.6, 130, 42170, 'IW44694');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Ferrari', '599 GTB Fiorano', 2007, 'Red', 1.9, 100, 52225, 'LN22472');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'hatchback', 'Subaru', 'Justy', 1992, 'Turquoise', 1.6, 120, 19523, 'SW76441');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Mazda', '626', 1984, 'Purple', 2.5, 152, 56749, 'SW48705');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'compact', 'Acura', 'RL', 2005, 'Turquoise', 1.1, 103, 42718, 'ED71728');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'Kia', 'Carens', 2007, 'Indigo', 1.4, 178, 12673, 'SW74493');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'crossover', 'Pontiac', 'Grand Prix', 1998, 'Green', 2.3, 101, 11293, 'CV54944');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Buick', 'Terraza', 2007, 'Violet', 1.9, 80, 21803, 'LN80228');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Lexus', 'GS', 2003, 'Pink', 1.7, 211, 29918, 'ED59101');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'family', 'Ford', 'E-Series', 2004, 'Indigo', 2.2, 94, 39130, 'GL83175');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'luxury', 'Hyundai', 'Genesis Coupe', 2011, 'Fuscia', 1.4, 203, 13826, 'PO68824');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Mercury', 'Grand Marquis', 2005, 'Mauv', 1.0, 117, 55315, 'IW20950');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Maserati', 'Karif', 1990, 'Green', 1.2, 140, 47900, 'ED29248');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Saab', '9-7X', 2007, 'Puce', 1.3, 114, 13189, 'SW66558');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'crossover', 'Toyota', 'Tercel', 1997, 'Teal', 1.7, 220, 12021, 'ED68051');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Volvo', 'V70', 2007, 'Indigo', 1.9, 128, 30059, 'ED79495');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Chevrolet', 'Suburban', 2007, 'Aquamarine', 1.1, 96, 20480, 'ED55515');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Mazda', 'RX-7', 1994, 'Puce', 1.7, 206, 59403, 'GL55793');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'luxury', 'Plymouth', 'Reliant', 1981, 'Turquoise', 1.2, 111, 18209, 'LN78497');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Dodge', 'Nitro', 2011, 'Yellow', 2.3, 103, 34899, 'IW55445');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Dodge', 'Stratus', 2001, 'Maroon', 1.1, 206, 31334, 'ED68503');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'luxury', 'Nissan', 'Murano', 2003, 'Teal', 2.1, 95, 27596, 'SW71125');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'SUV', 'Kia', 'Sorento', 2011, 'Red', 1.5, 219, 19409, 'IW59814');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'hatchback', 'Mitsubishi', 'Expo', 1994, 'Crimson', 1.4, 143, 47547, 'IW62135');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Mercury', 'Mariner', 2005, 'Red', 1.0, 132, 46616, 'MN73553');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Dodge', 'Intrepid', 2002, 'Yellow', 1.5, 193, 62332, 'MN26954');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Spyker', 'C8 Spyder', 2004, 'Mauv', 1.1, 95, 37085, 'CV87107');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'pickup', 'Mitsubishi', 'Montero Sport', 2002, 'Indigo', 1.5, 145, 46129, 'CV54696');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Chevrolet', 'Corvette', 1997, 'Goldenrod', 2.2, 173, 32687, 'PO57911');
+insert into cars (statusID, type, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Mercury', 'Cougar', 1997, 'Red', 2.0, 211, 64593, 'SW32125');
+
+select * from cars;
