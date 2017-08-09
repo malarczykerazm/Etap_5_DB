@@ -60,7 +60,7 @@ CREATE TABLE `car_rental_company`.`addresses` (
   CREATE TABLE `car_rental_company`.`credit_cards` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `customerID` INT NOT NULL,
-  `number` INT NOT NULL,
+  `number` VARCHAR(16) NOT NULL UNIQUE,
   `expirationDate` DATE,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (customerID) REFERENCES customers(ID));
@@ -78,9 +78,10 @@ CREATE TABLE `car_rental_company`.`car_statuses` (
   `model` VARCHAR(45) NOT NULL,
   `productionYear` INT NOT NULL,
   `colour` VARCHAR(45) NOT NULL,
-  `engineVolume` INT NOT NULL,
+  `engineVolume` DECIMAl NOT NULL,
   `power` INT NOT NULL,
   `mileage` INT NOT NULL,
+  `plateNumber` VARCHAR(7),
   PRIMARY KEY (`ID`),
   FOREIGN KEY (statusID) REFERENCES car_statuses(ID));
   
@@ -486,7 +487,7 @@ insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddre
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Edmée', 'Emblen', '1977-08-18', 4, 57, 57, 61);
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Adèle', 'Liddon', '1993-12-10', 5, 58, 58, 62);
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Rachèle', 'Padefield', '1990-09-10', 4, 59, 59, 63);
-insert into customers (name, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Tú Gmbh', 3, 60, 71, 64);
+insert into customers (name, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('TAK Gmbh', 3, 60, 71, 64);
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Gaëlle', 'Milmore', '1982-02-26', 2, 61, 61, 65);
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Mårten', 'Corston', '1961-09-21', 2, 62, 62, 66);
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Tú', 'Edeson', '1962-03-23', 4, 63, 63, 67);
@@ -498,4 +499,60 @@ insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddre
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Marie-josée', 'Abby', '1982-03-16', 1, 69, 69, 73);
 insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Thérèsa', 'McCrone', '1964-11-18', 1, 70, 73, 74);
 
+/* ########################################################################## CREDIT_CARDS ##########################################################################  */
+insert into credit_cards (customerID, number, expirationDate) values (1, 1898712488947874, '2025-03-11');
+insert into credit_cards (customerID, number, expirationDate) values (1, 1898712488947875, '2022-07-15');
+insert into credit_cards (customerID, number, expirationDate) values (1, 1898712488947876, '2017-09-10');
+insert into credit_cards (customerID, number, expirationDate) values (2, 1459754170266391, '2019-11-11');
+insert into credit_cards (customerID, number, expirationDate) values (3, 1203314486920424, '2022-12-26');
+insert into credit_cards (customerID, number, expirationDate) values (4, 1317651761615591, '2023-08-27');
+insert into credit_cards (customerID, number, expirationDate) values (5, 1551214339871004, '2018-09-29');
+insert into credit_cards (customerID, number, expirationDate) values (6, 1489547172266669, '2024-08-07');
+insert into credit_cards (customerID, number, expirationDate) values (7, 1784628178169878, '2024-06-23');
+insert into credit_cards (customerID, number, expirationDate) values (8, 1087611512731377, '2018-07-27');
+insert into credit_cards (customerID, number, expirationDate) values (9, 1802498364080355, '2019-06-21');
+insert into credit_cards (customerID, number, expirationDate) values (10, 1267278091347393, '2020-09-01');
+insert into credit_cards (customerID, number, expirationDate) values (11, 1160864987374937, '2023-07-12');
+insert into credit_cards (customerID, number, expirationDate) values (12, 1615809011450621, '2025-10-19');
+insert into credit_cards (customerID, number, expirationDate) values (13, 1346002374091882, '2025-06-02');
+insert into credit_cards (customerID, number, expirationDate) values (14, 1307405145505041, '2020-03-22');
+insert into credit_cards (customerID, number, expirationDate) values (15, 1596725605085498, '2023-09-17');
+insert into credit_cards (customerID, number, expirationDate) values (16, 1181676020731340, '2020-07-08');
+insert into credit_cards (customerID, number, expirationDate) values (17, 1513602799527340, '2017-07-21');
+insert into credit_cards (customerID, number, expirationDate) values (18, 1732998857606294, '2024-03-09');
+insert into credit_cards (customerID, number, expirationDate) values (19, 1325092027853691, '2025-07-18');
+insert into credit_cards (customerID, number, expirationDate) values (20, 1251494019624559, '2018-01-10');
+insert into credit_cards (customerID, number, expirationDate) values (21, 1297304736923566, '2017-01-05');
+insert into credit_cards (customerID, number, expirationDate) values (22, 1521023135935819, '2018-03-15');
+insert into credit_cards (customerID, number, expirationDate) values (23, 1461395796400980, '2018-11-01');
+insert into credit_cards (customerID, number, expirationDate) values (24, 1164290393875218, '2019-05-03');
+insert into credit_cards (customerID, number, expirationDate) values (25, 1501356814658408, '2018-03-05');
+insert into credit_cards (customerID, number, expirationDate) values (26, 1496677984993051, '2021-11-18');
+insert into credit_cards (customerID, number, expirationDate) values (27, 1529889202149440, '2020-04-12');
+insert into credit_cards (customerID, number, expirationDate) values (28, 1690068313511966, '2017-03-08');
+insert into credit_cards (customerID, number, expirationDate) values (29, 1306963274403103, '2024-12-29');
+insert into credit_cards (customerID, number, expirationDate) values (30, 1240952676867353, '2021-03-22');
+insert into credit_cards (customerID, number, expirationDate) values (31, 1876092238744328, '2023-12-14');
+insert into credit_cards (customerID, number, expirationDate) values (32, 1535691301114459, '2017-07-09');
+insert into credit_cards (customerID, number, expirationDate) values (33, 1080494503237987, '2020-06-11');
+insert into credit_cards (customerID, number, expirationDate) values (34, 1065348223135277, '2025-03-18');
+insert into credit_cards (customerID, number, expirationDate) values (35, 1066299802237219, '2024-02-23');
+insert into credit_cards (customerID, number, expirationDate) values (36, 1414791635718007, '2016-09-20');
+insert into credit_cards (customerID, number, expirationDate) values (36, 1414791635718182, '2022-09-20');
+insert into credit_cards (customerID, number, expirationDate) values (36, 1414791635718912, '2024-09-20');
+insert into credit_cards (customerID, number, expirationDate) values (37, 1261786444807099, '2023-04-11');
+insert into credit_cards (customerID, number, expirationDate) values (38, 1155905964025152, '2018-05-06');
+insert into credit_cards (customerID, number, expirationDate) values (39, 1425381967850713, '2022-01-23');
+insert into credit_cards (customerID, number, expirationDate) values (40, 1302427572135209, '2021-01-04');
+insert into credit_cards (customerID, number, expirationDate) values (41, 1400879906187067, '2018-06-22');
+insert into credit_cards (customerID, number, expirationDate) values (42, 1012126951070127, '2020-10-05');
+insert into credit_cards (customerID, number, expirationDate) values (43, 1764169689229734, '2017-04-07');
+insert into credit_cards (customerID, number, expirationDate) values (44, 1380922496718699, '2018-05-09');
+insert into credit_cards (customerID, number, expirationDate) values (45, 1050485802693784, '2024-02-02');
+insert into credit_cards (customerID, number, expirationDate) values (45, 1050485802693792, '2020-12-02');
+insert into credit_cards (customerID, number, expirationDate) values (46, 1013222647315276, '2020-11-14');
 
+/* ########################################################################## CAR_STATUSES ##########################################################################  */
+insert into car_statuses (status) values ('free');
+insert into car_statuses (status) values ('loaned');
+insert into car_statuses (status) values ('missing');
