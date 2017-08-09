@@ -30,8 +30,8 @@ CREATE TABLE `car_rental_company`.`addresses` (
   
   CREATE TABLE `car_rental_company`.`employees` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `name` CHAR NOT NULL,
-  `surname` CHAR NOT NULL,
+  `name` VARCHAR(20) NOT NULL,
+  `surname` VARCHAR(80) NOT NULL,
   `dateOfBirth` DATE NOT NULL,
   `agencyID` INT NOT NULL,
   `addressID` INT NOT NULL,
@@ -111,152 +111,152 @@ use car_rental_company;
 
 /* ########################################################################## ADRESSES ##########################################################################  */
 /** -------------------- AGENCYS' ADDRESSES -------------------- **/
-insert into addresses(number, street, postcode, city, country) values ('1', 'Kirkmanshulme Ln', 'M12 4WB', 'Manchester', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('1', 'Kirkmanshulme Ln', 'M12 4WB', 'Manchester', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('11', 'Bathgate Rd', 'EH48 2PD', 'Edinburgh', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('11', 'Bathgate Rd', 'EH48 2PD', 'Edinburgh', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('312', 'Ashey Rd', 'PO33 4BH', 'Isle of Wight', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('312', 'Ashey Rd', 'PO33 4BH', 'Isle of Wight', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('101', 'Wimborne Rd', 'BH15 2BP', 'Poole', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('101', 'Wimborne Rd', 'BH15 2BP', 'Poole', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('18', 'Lady Ln', 'SN25 4DN', 'Swindon', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('18', 'Lady Ln', 'SN25 4DN', 'Swindon', 'UK');
 
 /** -------------------- CUSTOMERS' ADDRESSES -------------------- **/
-insert into addresses(number, street, postcode, city, country) values ('76', 'Rye Rd', 'EN11 0EH', 'Hoddeson', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('76', 'Rye Rd', 'EN11 0EH', 'Hoddeson', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('377', 'Alwalton St', 'PE2 0XE', 'Peterborough', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('377', 'Alwalton St', 'PE2 0XE', 'Peterborough', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('45', 'Rugby Rd', 'CV8 3GJ', 'Coventry', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('45', 'Rugby Rd', 'CV8 3GJ', 'Coventry', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('23', 'Sutherland Av', 'WV2 2JJ', 'Wolverhampton', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('23', 'Sutherland Av', 'WV2 2JJ', 'Wolverhampton', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('54', 'Penistone Rd', 'S6 2DE', 'Sheffield', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('54', 'Penistone Rd', 'S6 2DE', 'Sheffield', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('18', 'Fossway Rd', 'NE6 2XJ', 'Newcastle', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('18', 'Fossway Rd', 'NE6 2XJ', 'Newcastle', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('82', 'Hawthorn St', 'G22 6RU', 'Glasgow', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('82', 'Hawthorn St', 'G22 6RU', 'Glasgow', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('16A', 'Abbey Road', 'NW8 9BD', 'London', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('16A', 'Abbey Road', 'NW8 9BD', 'London', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('443', 'Aldborough Road South', 'IG3 8JN', 'Ilford', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('443', 'Aldborough Road South', 'IG3 8JN', 'Ilford', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('7', 'Wells Road', 'BS27 3SW', 'Cheddar', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('7', 'Wells Road', 'BS27 3SW', 'Cheddar', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('11', 'Parkins Garth', 'DL8 3HD', 'Leyburn', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('11', 'Parkins Garth', 'DL8 3HD', 'Leyburn', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('1', 'The Hill', 'DG16 5HG', 'Dumfries and Galloway', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('1', 'The Hill', 'DG16 5HG', 'Dumfries and Galloway', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('43', 'Grafton Way', 'W1T 5DG', 'London', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('43', 'Grafton Way', 'W1T 5DG', 'London', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('60', 'Purser Road', 'NN1 4PQ', 'Northampton', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('60', 'Purser Road', 'NN1 4PQ', 'Northampton', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('15', 'Lytham Avenue', 'S25 2TB', 'Sheffield', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('15', 'Lytham Avenue', 'S25 2TB', 'Sheffield', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('22', 'Nant Hall Road', 'LL19 9LN', 'Prestatyn', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('22', 'Nant Hall Road', 'LL19 9LN', 'Prestatyn', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('15', 'Great Percy Street', 'WC1X 9RD', 'London', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('15', 'Great Percy Street', 'WC1X 9RD', 'London', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('39', 'Westray Street', 'TS13 4EL', 'Saltburn-by-the-Sea', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('39', 'Westray Street', 'TS13 4EL', 'Saltburn-by-the-Sea', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('128', 'West End Road', 'UB1 1JN', 'Southall', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('128', 'West End Road', 'UB1 1JN', 'Southall', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('14', 'Park Lane', 'TF6 6BA', 'Telford', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('14', 'Park Lane', 'TF6 6BA', 'Telford', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('28', 'Earlsway', 'NE11', 'Tyne and Wear', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('28', 'Earlsway', 'NE11', 'Tyne and Wear', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('2', 'Howes Road', 'AB16 7RH', 'Aberdeen City', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('2', 'Howes Road', 'AB16 7RH', 'Aberdeen City', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('21', 'Batsmans Drive', 'NN10 6EW', 'Rushden', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('21', 'Batsmans Drive', 'NN10 6EW', 'Rushden', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('B8035', 'Isle of Mull', 'PA68 6EJ', 'Scotland', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('B8035', 'Isle of Mull', 'PA68 6EJ', 'Scotland', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('99', 'Shakespeare Street', 'PR8 5AJ', 'Southport', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('99', 'Shakespeare Street', 'PR8 5AJ', 'Southport', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('44-64', 'Severn Way', 'MK3', 'Milton Keynes', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('44-64', 'Severn Way', 'MK3', 'Milton Keynes', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('175', 'Sarehole Road', 'B28 8EL', 'Birmingham', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('175', 'Sarehole Road', 'B28 8EL', 'Birmingham', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('17', 'Brunel Close', 'CF82 8HT', 'Hengoed', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('17', 'Brunel Close', 'CF82 8HT', 'Hengoed', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('1', 'Beath Grove', 'TS25 3BY', 'Hartlepool', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('1', 'Beath Grove', 'TS25 3BY', 'Hartlepool', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('18', 'Pine View', 'DT6 5AE', 'Bridport', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('18', 'Pine View', 'DT6 5AE', 'Bridport', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('7', 'Farmview Close', 'L27 1XZ', 'Liverpool', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('7', 'Farmview Close', 'L27 1XZ', 'Liverpool', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('2', 'Bank Street', 'NP19 7HF', 'Newport', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('2', 'Bank Street', 'NP19 7HF', 'Newport', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('2', 'Woodview Terrace', 'SA10', 'Neath Port Talbot', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('2', 'Woodview Terrace', 'SA10', 'Neath Port Talbot', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('1', 'Iberian Way', 'GU15 1LU', 'Camberley', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('1', 'Iberian Way', 'GU15 1LU', 'Camberley', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('18', 'Vowels Lane', 'RH19 4LD', 'West Sussex', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('18', 'Vowels Lane', 'RH19 4LD', 'West Sussex', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('221', 'Guildford Road', 'GU18 5RE', 'Lightwater', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('221', 'Guildford Road', 'GU18 5RE', 'Lightwater', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('50', 'Fernicombe Road', 'TQ3 3XD', 'Paignton', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('50', 'Fernicombe Road', 'TQ3 3XD', 'Paignton', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('11', 'Ennis Close', 'AL5 1SS', 'Harpenden', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('11', 'Ennis Close', 'AL5 1SS', 'Harpenden', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('114', 'Bruce Grove', 'N17 6UR', 'London', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('114', 'Bruce Grove', 'N17 6UR', 'London', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('12', 'Marygate', 'TD15 1BN', 'Berwick-upon-Tweed', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('12', 'Marygate', 'TD15 1BN', 'Berwick-upon-Tweed', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('8', 'Nether Court', 'DG5 4EY', 'Dalbeattie', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('8', 'Nether Court', 'DG5 4EY', 'Dalbeattie', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('5-7', 'Wood End', 'UB3 2SB', 'Hayes', 'UK'); 
+insert into addresses (number, street, postcode, city, country) values ('5-7', 'Wood End', 'UB3 2SB', 'Hayes', 'UK'); 
 
-insert into addresses(number, street, postcode, city, country) values ('4', 'Chapel Street', 'WV2 3EU', 'Wolverhampton', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('4', 'Chapel Street', 'WV2 3EU', 'Wolverhampton', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('7', 'Sandylands Drive', 'M25 9SH', 'Manchester', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('7', 'Sandylands Drive', 'M25 9SH', 'Manchester', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('7A', 'Glenferness Avenue', 'BH4 9ND', 'Bournemouth', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('7A', 'Glenferness Avenue', 'BH4 9ND', 'Bournemouth', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('1B', 'Tiree Avenue', 'PA4 0EP', 'Renfrew', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('1B', 'Tiree Avenue', 'PA4 0EP', 'Renfrew', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('4', 'Leithhead', 'EH27 8DJ', 'Edinburgh', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('4', 'Leithhead', 'EH27 8DJ', 'Edinburgh', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('78', 'Gloucester Street', 'SN1', 'Swindon', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('78', 'Gloucester Street', 'SN1', 'Swindon', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('51', 'A244', 'KT10', 'Esher', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('51', 'A244', 'KT10', 'Esher', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('12', 'Keills Cottages', 'PA46 7RG', 'Isle of Islay', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('12', 'Keills Cottages', 'PA46 7RG', 'Isle of Islay', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('9', 'Greenbank Road', 'DL3 6EJ', 'Darlington', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('9', 'Greenbank Road', 'DL3 6EJ', 'Darlington', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('8', 'Tottenham Mews', 'W1T 4AE', 'London', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('8', 'Tottenham Mews', 'W1T 4AE', 'London', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('18', 'Newport Street', 'OL8 4AJ', 'Oldham', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('18', 'Newport Street', 'OL8 4AJ', 'Oldham', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('5', 'Southgate Court', 'S21 4LA', 'Sheffield', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('5', 'Southgate Court', 'S21 4LA', 'Sheffield', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('21', 'Hazel Grove', 'CH61 4UY', 'Wirral', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('21', 'Hazel Grove', 'CH61 4UY', 'Wirral', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('41', 'Walter Street', 'TS18 3PP', 'Stockton-on-Tees', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('41', 'Walter Street', 'TS18 3PP', 'Stockton-on-Tees', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('9', 'Fenn Close', 'IP19 8LD', 'Halesworth', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('9', 'Fenn Close', 'IP19 8LD', 'Halesworth', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('299', 'Edgefauld Road', 'G21 4XB', 'Glasgow', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('299', 'Edgefauld Road', 'G21 4XB', 'Glasgow', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('17', 'Carlton Gardens', 'LS7 1HF', 'Leeds', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('17', 'Carlton Gardens', 'LS7 1HF', 'Leeds', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('31A', 'Main Road', 'KA29 0DL', 'Largs', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('31A', 'Main Road', 'KA29 0DL', 'Largs', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('6', 'Richmond Terrace', 'CA28 7QR', 'Whitehaven', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('6', 'Richmond Terrace', 'CA28 7QR', 'Whitehaven', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('27', 'Wheelers Lane', 'B13 0SB', 'Birmingham', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('27', 'Wheelers Lane', 'B13 0SB', 'Birmingham', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('15', 'Borough Road', 'TQ4', 'Paignton', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('15', 'Borough Road', 'TQ4', 'Paignton', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('4', 'Heyford Road', 'OX5 3HU', 'Kidlington', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('4', 'Heyford Road', 'OX5 3HU', 'Kidlington', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('4', 'Fairfield Road', 'RH15 8NR', 'Burgess Hill', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('4', 'Fairfield Road', 'RH15 8NR', 'Burgess Hill', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('146', 'Dashwood Avenue', 'HP12 3EB', 'High Wycombe', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('146', 'Dashwood Avenue', 'HP12 3EB', 'High Wycombe', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('109', 'Monkton Lane', 'NE32 5NS', 'Jarrow', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('109', 'Monkton Lane', 'NE32 5NS', 'Jarrow', 'UK');
 
-insert into addresses(number, street, postcode, city, country) values ('13', 'Park Lane', 'TW9 2RA', 'Richmond', 'UK');
+insert into addresses (number, street, postcode, city, country) values ('13', 'Park Lane', 'TW9 2RA', 'Richmond', 'UK');
 
 /* ########################################################################## CONTACT_DATA ##########################################################################  */
 insert into contact_data (email, phone) values ('agency_manchester@car_rental.co.uk', '0-(513)725-0251');
@@ -379,4 +379,44 @@ insert into contact_data (email, phone) values ('bheaven1h@shareasale.com', '996
 
 insert into contact_data (email, phone) values ('sedensor1i@abc.net.au', '63-(237)132-2534');
 
+/* ########################################################################## AGENCIES ##########################################################################  */
+insert into agencies (addressID, contactID) values (1, 1);
+insert into agencies (addressID, contactID) values (2, 2);
+insert into agencies (addressID, contactID) values (3, 3);
+insert into agencies (addressID, contactID) values (4, 4);
+insert into agencies (addressID, contactID) values (5, 5);
 
+/* ########################################################################## POSITIONS ##########################################################################  */
+insert into positions (positionName) values ('CEO');
+insert into positions (positionName) values ('Company Accountant');
+insert into positions (positionName) values ('Agency Chief');
+insert into positions (positionName) values ('Car Dealer');
+
+/* ########################################################################## EMPLOYEES ##########################################################################  */
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Pancho', 'Naerup', '1993-01-09', 4, 6, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Aili', 'Lysaght', '1961-11-25', 2, 8, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Niki', 'Dumbare', '1976-12-26', 4, 6, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Kerianne', 'Greaser', '1973-05-12', 1, 9, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Aubrey', 'Goodnow', '1955-06-08', 1, 7, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Nara', 'Heckner', '1999-07-26', 2, 10, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Simona', 'Sleford', '1998-12-10', 2, 27, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Betta', 'Enderwick', '1991-01-21', 2, 11, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Odilia', 'Cumming', '1954-03-20', 2, 13, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Arnaldo', 'Puddan', '1988-02-27', 4, 15, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Theadora', 'Sketchley', '1985-12-16', 1, 14, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Earle', 'Jakobsson', '1979-06-14', 4, 12, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Bernie', 'Jakobsson', '1985-09-26', 4, 12, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Ingrid', 'Ulster', '1969-07-08', 3, 14, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Ardene', 'Twinberrow', '1955-07-09', 4, 17, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Denys', 'Tamplin', '1995-07-31', 4, 16, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Rickert', 'McIlhagga', '1968-07-08', 4, 20, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Dina', 'Hegley', '1972-12-01', 5, 18, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Chancey', 'Upsale', '1950-03-07', 5, 21, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Chance', 'Cranmore', '1979-01-19', 1, 22, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Hubie', 'Lamy', '1988-09-03', 2, 21, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Leesa', 'Ketteridge', '1967-05-25', 3, 23, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Sylvester', 'Blay', '1967-06-19', 1, 1, 1);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Melonie', 'Gellately', '1986-10-05', 1, 24, 2);
+
+select * from employees;
+select * from employees where positionID = 4;
