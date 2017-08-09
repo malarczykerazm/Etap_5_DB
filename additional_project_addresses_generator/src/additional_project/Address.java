@@ -16,27 +16,24 @@ public class Address {
 		String city;
 		String postcode;
 		String country;
-		
+
 		int i = 0;
 
-		while(input.hasNextLine()) {
+		while (input.hasNextLine()) {
 			i++;
-			System.out.println("insert into address(number, street, postcode, city, country)");
+			System.out.println("insert into addresses(number, street, postcode, city, country)");
 			afterComma = input.nextLine().split(",");
-			if (afterComma[2] == null) {
-				number = "5";
-			} else {
-				number = afterComma[2];								
-			}
+			number = afterComma[2];
 			street = afterComma[3];
 			city = afterComma[5];
 			postcode = afterComma[afterComma.length - 2];
 			country = afterComma[afterComma.length - 1];
-			System.out.println("values (\"" + number + "\", \"" + street + "\", \"" + postcode + "\", \"" + city + "\", \"" + country + "\");");
+			System.out.println("values ('" + number + "', '" + street + "', '" + postcode + "', '" + city
+					+ "', '" + country + "');");
 			System.out.println();
 		}
 		System.out.println(i);
-			
+
 		input.close();
 	}
 
