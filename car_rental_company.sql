@@ -12,7 +12,7 @@ CREATE TABLE `car_rental_company`.`addresses` (
   CREATE TABLE `car_rental_company`.`contact_data` (
    `ID` INT NOT NULL AUTO_INCREMENT,
   `phone` VARCHAR(20) NOT NULL,
-  `email` VARCHAR(45),
+  `email` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`ID`));
   
   CREATE TABLE `car_rental_company`.`agencies` (
@@ -35,16 +35,18 @@ CREATE TABLE `car_rental_company`.`addresses` (
   `dateOfBirth` DATE NOT NULL,
   `agencyID` INT NOT NULL,
   `addressID` INT NOT NULL,
+  `contactID` INT NOT NULL,
   `positionID` INT NOT NULL,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (agencyID) REFERENCES agencies(ID),
   FOREIGN KEY (addressID) REFERENCES addresses(ID),
+  FOREIGN KEY (contactID) REFERENCES contact_data(ID),
   FOREIGN KEY (positionID) REFERENCES positions(ID));
   
   CREATE TABLE `car_rental_company`.`customers` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `name` CHAR NOT NULL,
-  `surname` CHAR,
+  `name` VARCHAR(80) NOT NULL,
+  `surname` VARCHAR(80),
   `dateOfBirth` DATE,
   `agencyID` INT NOT NULL,
   `correspondenceAddressID` INT NOT NULL,
@@ -379,6 +381,36 @@ insert into contact_data (email, phone) values ('bheaven1h@shareasale.com', '996
 
 insert into contact_data (email, phone) values ('sedensor1i@abc.net.au', '63-(237)132-2534');
 
+insert into contact_data (email, phone) values ('unleashed67@salon.com', '86-(339)434-1239');
+
+insert into contact_data (email, phone) values ('myhobby1@t.co', '967-(668)962-2247');
+
+insert into contact_data (email, phone) values ('segritta96@buzzfeed.com', '63-(945)283-0566');
+
+insert into contact_data (email, phone) values ('jakelea1a@example.com', '33-(111)149-0899');
+
+insert into contact_data (email, phone) values ('isertin15b@upenn.edu', '62-(618)802-9093');
+
+insert into contact_data (email, phone) values ('xbeyer1c@yellowpages.com', '55-(925)524-3156');
+
+insert into contact_data (email, phone) values ('jjosh1d@wikia.com', '68-(968)756-2370');
+
+insert into contact_data (email, phone) values ('barsholt1e@webeden.co.uk', '86-(876)354-4567');
+
+insert into contact_data (email, phone) values ('btought@toplist.cz', '381-(454)992-1862');
+
+insert into contact_data (email, phone) values ('hhirex2@furl.net', '16-(264)301-5043');
+
+insert into contact_data (email, phone) values ('berni905@shareasale.com', '196-(353)664-4141');
+
+insert into contact_data (email, phone) values ('churchill18@abc.net.au', '68-(257)152-2524');
+
+insert into contact_data (email, phone) values ('dominique15@sjava.com', '106-(957)624-4942');
+
+insert into contact_data (email, phone) values ('nevillus1@dot.net', '57-(240)115-7654');
+
+insert into contact_data (email, phone) values ('marco_polo_@java.com', '12-(182)114-0570');
+
 /* ########################################################################## AGENCIES ##########################################################################  */
 insert into agencies (addressID, contactID) values (1, 1);
 insert into agencies (addressID, contactID) values (2, 2);
@@ -393,27 +425,77 @@ insert into positions (positionName) values ('Agency Chief');
 insert into positions (positionName) values ('Car Dealer');
 
 /* ########################################################################## EMPLOYEES ##########################################################################  */
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Pancho', 'Naerup', '1993-01-09', 4, 6, 3);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Aili', 'Lysaght', '1961-11-25', 2, 8, 3);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Niki', 'Dumbare', '1976-12-26', 4, 6, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Kerianne', 'Greaser', '1973-05-12', 1, 9, 3);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Aubrey', 'Goodnow', '1955-06-08', 1, 7, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Nara', 'Heckner', '1999-07-26', 2, 10, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Simona', 'Sleford', '1998-12-10', 2, 27, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Betta', 'Enderwick', '1991-01-21', 2, 11, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Odilia', 'Cumming', '1954-03-20', 2, 13, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Arnaldo', 'Puddan', '1988-02-27', 4, 15, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Theadora', 'Sketchley', '1985-12-16', 1, 14, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Earle', 'Jakobsson', '1979-06-14', 4, 12, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Bernie', 'Jakobsson', '1985-09-26', 4, 12, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Ingrid', 'Ulster', '1969-07-08', 3, 14, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Ardene', 'Twinberrow', '1955-07-09', 4, 17, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Denys', 'Tamplin', '1995-07-31', 4, 16, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Rickert', 'McIlhagga', '1968-07-08', 4, 20, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Dina', 'Hegley', '1972-12-01', 5, 18, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Chancey', 'Upsale', '1950-03-07', 5, 21, 3);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Chance', 'Cranmore', '1979-01-19', 1, 22, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Hubie', 'Lamy', '1988-09-03', 2, 21, 4);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Leesa', 'Ketteridge', '1967-05-25', 3, 23, 3);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Sylvester', 'Blay', '1967-06-19', 1, 1, 1);
-insert into employees (name, surname, dateOfBirth, agencyID, addressID, positionID) values ('Melonie', 'Gellately', '1986-10-05', 1, 24, 2);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Pancho', 'Naerup', '1993-01-09', 4, 6, 6, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Aili', 'Lysaght', '1961-11-25', 2, 8, 7, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Niki', 'Dumbare', '1976-12-26', 4, 6, 8, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Kerianne', 'Greaser', '1973-05-12', 1, 9, 9, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Aubrey', 'Goodnow', '1955-06-08', 1, 7, 10, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Nara', 'Heckner', '1999-07-26', 2, 10, 11, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Simona', 'Sleford', '1998-12-10', 2, 25, 12, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Betta', 'Enderwick', '1991-01-21', 2, 11, 13, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Odilia', 'Cumming', '1954-03-20', 2, 13, 14, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Arnaldo', 'Puddan', '1988-02-27', 4, 15, 15, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Theadora', 'Sketchley', '1985-12-16', 1, 14, 16, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Earle', 'Jakobsson', '1979-06-14', 4, 12, 17, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Bernie', 'Jakobsson', '1985-09-26', 4, 12, 18, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Ingrid', 'Ulster', '1969-07-08', 3, 19, 19, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Ardene', 'Twinberrow', '1955-07-09', 4, 17, 20, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Denys', 'Tamplin', '1995-07-31', 4, 16, 21, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Rickert', 'McIlhagga', '1968-07-08', 4, 20, 22, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Dina', 'Hegley', '1972-12-01', 5, 18, 23, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Chancey', 'Upsale', '1950-03-07', 5, 21, 24, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Chance', 'Cranmore', '1979-01-19', 1, 22, 25, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Hubie', 'Lamy', '1988-09-03', 2, 21, 26, 4);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Leesa', 'Ketteridge', '1967-05-25', 3, 23, 27, 3);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Sylvester', 'Blay', '1967-06-19', 1, 1, 28, 1);
+insert into employees (name, surname, dateOfBirth, agencyID, addressID, contactID, positionID) values ('Melonie', 'Gellately', '1986-10-05', 1, 24, 29, 2);
+
+/* ########################################################################## CUSTOMERS ##########################################################################  */
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Liè', 'McGeachey', '1992-02-08', 1, 26, 26, 30);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Dafnée', 'Jentet', '1966-11-29', 4, 27, 27, 31);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Lén', 'Gabotti', '1990-11-06', 1, 28, 28, 32);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Maëlle', 'Torresi', '1980-01-28', 2, 29, 29, 33);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Chloé', 'Perutto', '1969-03-17', 1, 30, 30, 34);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Edmée', 'Rubberts', '1988-04-16', 2, 31, 31, 35);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Maëline', 'Karpinski', '1964-09-27', 3, 32, 32, 36);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Dà', 'Corbally', '1988-05-20', 3, 33, 33, 37);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Chloé', 'Arnoll', '1978-12-23', 3, 34, 34, 38);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Maëly', 'Labroue', '1985-01-18', 4, 35, 35, 39);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Thérèse', 'Miles', '1993-10-30', 2, 36, 36, 40);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Mylène', 'Zum Felde', '1971-07-19', 3, 37, 37, 41);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Nuó', 'Hull', '1986-07-19', 3, 38, 38, 42);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Valérie', 'Gilby', '1980-03-01', 5, 39, 39, 43);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Lài', 'Hackinge', '1992-01-24', 4, 40, 40, 44);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Esbjörn', 'Kenvin', '1977-07-16', 4, 41, 41, 45);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Mylène', 'Canadas', '1963-08-15', 3, 42, 42, 46);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Marie-Thérèse', 'Resdale', '1984-09-11', 1, 43, 43, 47);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Marco', 'Resdale', '1983-10-05', 1, 43, 43, 75);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Laurélie', 'Mordey', '1961-05-08', 4, 44, 44, 48);
+insert into customers (name, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('SomeCompany Ltd', 4, 45, 72, 49);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Méghane', 'Blissitt', '1973-03-12', 2, 46, 46, 50);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Maïwenn', 'Pywell', '1996-01-19', 4, 47, 47, 51);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Marie-josée', 'Gedling', '1973-01-19', 4, 48, 48, 52);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Kù', 'Ridger', '1989-02-17', 4, 49, 49, 53);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Angélique', 'Halmkin', '1990-05-24', 3, 50, 50, 54);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Thérèsa', 'Whyke', '1971-12-01', 1, 51, 51, 55);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Maëlyss', 'Cudworth', '1973-03-10', 3, 52, 52, 56);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Laïla', 'McCarver', '1979-10-29', 1, 53, 53, 57);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Yóu', 'Spilsted', '1962-03-07', 2, 54, 54, 58);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Personnalisée', 'Jeffcoat', '1990-12-23', 5, 55, 55, 59);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Célestine', 'Siddaley', '1973-06-30', 1, 56, 56, 60);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Edmée', 'Emblen', '1977-08-18', 4, 57, 57, 61);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Adèle', 'Liddon', '1993-12-10', 5, 58, 58, 62);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Rachèle', 'Padefield', '1990-09-10', 4, 59, 59, 63);
+insert into customers (name, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Tú Gmbh', 3, 60, 71, 64);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Gaëlle', 'Milmore', '1982-02-26', 2, 61, 61, 65);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Mårten', 'Corston', '1961-09-21', 2, 62, 62, 66);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Tú', 'Edeson', '1962-03-23', 4, 63, 63, 67);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Régine', 'Bibb', '1967-09-22', 4, 64, 64, 68);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Åslög', 'Kilban', '1964-01-28', 4, 65, 65, 69);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Néhémie', 'Raise', '1969-07-11', 3, 66, 66, 70);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Mélanie', 'Keyse', '1966-03-18', 2, 67, 67, 71);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Östen', 'Galvan', '1982-12-20', 2, 68, 68, 72);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Marie-josée', 'Abby', '1982-03-16', 1, 69, 69, 73);
+insert into customers (name, surname, dateOfBirth, agencyID, correspondenceAddressID, receiptAddressID, contactID) values ('Thérèsa', 'McCrone', '1964-11-18', 1, 70, 73, 74);
+
+
