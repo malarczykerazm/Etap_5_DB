@@ -27,12 +27,12 @@ CREATE TABLE `car_rental_company`.`addresses` (
   
   CREATE TABLE `car_rental_company`.`positions` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `positionfirstName` VARCHAR(45) NOT NULL,
+  `positionfirstname` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ID`));
   
   CREATE TABLE `car_rental_company`.`employees` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `firstName` VARCHAR(20) NOT NULL,
+  `firstname` VARCHAR(20) NOT NULL,
   `surname` VARCHAR(80) NOT NULL,
   `dateOfBirth` DATE NOT NULL,
   `agencyID` INT NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `car_rental_company`.`addresses` (
   
   CREATE TABLE `car_rental_company`.`customers` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `firstName` VARCHAR(80) NOT NULL,
+  `firstname` VARCHAR(80) NOT NULL,
   `surname` VARCHAR(80),
   `dateOfBirth` DATE,
   `agencyID` INT NOT NULL,
