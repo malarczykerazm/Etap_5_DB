@@ -65,7 +65,6 @@ group by c.ID
 order by count(r.ID) desc, c.ID
 limit 3;
 
-
 /* j) znajdź klientów, którzy zapłacili najwięcej za wypożyczenia w tym roku - przyjęto, że chodzi o 5 klientów */
 select r.customerID, c.firstname, c.surname, sum(r.price)
 from customers c
@@ -118,3 +117,21 @@ from employees e
 left join car_supervisors cs on e.ID = cs.employeeID
 where carID is null
 order by cs.employeeID;
+
+/** Zadanie 5 **/
+
+/* a) użytownik user_ro może tylko odczytywać dane z wszystkich tabel */
+CREATE USER 'user_ro'@'localhost' IDENTIFIED BY 'ro';
+GRANT select ON car_rental_company.* TO 'user_ro'@'localhost';
+GRANT delete ON car_rental_company.* TO 'user_ro'@'localhost';
+REVOKE delete ON car_rental_company.* FROM 'user_ro'@'localhost';
+FLUSH PRIVILEGES;
+
+/* b) użytownik user_rw_projekt ma pełny dostęp do tabeli z samochodami (tzn. może wstawiać i usuwać  dane), do innych tabel w projekcie dostępu nie ma. */
+CREATE USER 'user_rw'@'localhost' IDENTIFIED BY 'rw';
+GRANT select ON car_rental_company.cars TO 'user_rw'@'localhost';
+GRANT drop ON car_rental_company.cars TO 'user_rw'@'localhost';
+GRANT delete ON car_rental_company.cars TO 'user_rw'@'localhost';
+GRANT insert ON car_rental_company.cars TO 'user_rw'@'localhost';
+GRANT update ON car_rental_company.cars TO 'user_rw'@'localhost';
+FLUSH PRIVILEGES;
