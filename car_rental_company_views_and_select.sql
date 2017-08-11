@@ -1,8 +1,8 @@
 SET sql_mode = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 
-/** Zadanie 3 **/
-
 use car_rental_company;
+
+/** Zadanie 3 **/
 
 /* a) Stwórz widok który przedstawi klientów wraz z datami wypożyczeń i markami samochodów. */
 CREATE VIEW customers_with_all_rentals_data AS
@@ -137,12 +137,13 @@ GRANT update ON car_rental_company.cars TO 'user_rw'@'localhost';
 FLUSH PRIVILEGES;
 
 /** Zadanie 6 **/
+
 ALTER TABLE cars ADD INDEX `bodyTypeIndex` (carBodyType); # index potrzebny do szybkiego wyszukania tanego typu nadwozia żądanego przez klienta (np. w wyszukiwarce online)
 ALTER TABLE customers ADD INDEX `surnameIndex` (surname); # index potrzebny do znalezienia ID klienta po jego nazwisku
 ALTER TABLE rental_data ADD INDEX `customerIndex` (customerID); # index potrzebny do określenia historii wynajmów danego klienta (np. określenie warunków promocji i zniżek)
 
 /** Zadanie 7 **/
-/* Załóżmy, że minimalna cena wynajmu wynosi 100zł. Stwórz trigger, który ustawi cenę wynajmu na 100zł, jeżeli ktoś będzie starał sie wprowadzić do bazy niższą kwotę. */
+
 DELIMITER //
 CREATE TRIGGER minimal_price BEFORE INSERT ON rental_data
 FOR EACH ROW
