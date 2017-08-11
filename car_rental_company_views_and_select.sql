@@ -143,3 +143,12 @@ ALTER TABLE rental_data ADD INDEX `customerIndex` (customerID); # index potrzebn
 
 /** Zadanie 7 **/
 /* Załóżmy, że minimalna cena wynajmu wynosi 100zł. Stwórz trigger, który ustawi cenę wynajmu na 100zł, jeżeli ktoś będzie starał sie wprowadzić do bazy niższą kwotę. */
+DELIMITER //
+CREATE TRIGGER minimal_price BEFORE INSERT ON rental_data
+FOR EACH ROW
+       BEGIN
+           IF NEW.price < 100 THEN
+               SET NEW.price = 100;
+           END IF;
+       END;
+// DELIMITER ;
