@@ -121,6 +121,7 @@ order by cs.employeeID;
 /** Zadanie 5 **/
 
 /* a) użytownik user_ro może tylko odczytywać dane z wszystkich tabel */
+DROP USER IF EXISTS 'user_ro'@'localhost';
 CREATE USER 'user_ro'@'localhost' IDENTIFIED BY 'ro';
 GRANT select ON car_rental_company.* TO 'user_ro'@'localhost';
 GRANT delete ON car_rental_company.* TO 'user_ro'@'localhost';
@@ -128,6 +129,7 @@ REVOKE delete ON car_rental_company.* FROM 'user_ro'@'localhost';
 FLUSH PRIVILEGES;
 
 /* b) użytownik user_rw_projekt ma pełny dostęp do tabeli z samochodami (tzn. może wstawiać i usuwać  dane), do innych tabel w projekcie dostępu nie ma. */
+DROP USER IF EXISTS 'user_rw'@'localhost';
 CREATE USER 'user_rw'@'localhost' IDENTIFIED BY 'rw';
 GRANT select ON car_rental_company.cars TO 'user_rw'@'localhost';
 GRANT drop ON car_rental_company.cars TO 'user_rw'@'localhost';
@@ -145,7 +147,17 @@ ALTER TABLE rental_data ADD INDEX `customerIndex` (customerID); # index potrzebn
 /** Zadanie 7 **/
 
 DELIMITER //
-CREATE TRIGGER minimal_price BEFORE INSERT ON rental_data
+CREATE TRIGGER ins_minimal_price BEFORE INSERT ON rental_data
+FOR EACH ROW
+       BEGIN
+           IF NEW.price < 100 THEN
+               SET NEW.price = 100;
+           END IF;
+       END;
+// DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER updt_minimal_price BEFORE UPDATE ON rental_data
 FOR EACH ROW
        BEGIN
            IF NEW.price < 100 THEN

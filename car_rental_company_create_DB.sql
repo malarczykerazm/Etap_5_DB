@@ -1,5 +1,7 @@
 /** Zadanie 1 **/
 
+DROP DATABASE IF EXISTS car_rental_company;
+
 CREATE DATABASE car_rental_company;
 
 CREATE TABLE `car_rental_company`.`addresses` (
