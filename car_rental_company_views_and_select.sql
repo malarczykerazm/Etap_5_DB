@@ -102,7 +102,7 @@ group by substring_index(email, '@', -1)
 order by count(cu.ID) desc
 limit 1;
 
-/* p) znajdź samochody, które mają conajmniej 2 opiekunów */
+/* p) znajdź samochody, które mają co najmniej 2 opiekunów */
 select cs.carID, ca.brand, ca.model, count(cs.employeeID) as 'number of supervisors'
 from car_supervisors cs
 join cars ca on cs.carID = ca.ID
@@ -135,3 +135,11 @@ GRANT delete ON car_rental_company.cars TO 'user_rw'@'localhost';
 GRANT insert ON car_rental_company.cars TO 'user_rw'@'localhost';
 GRANT update ON car_rental_company.cars TO 'user_rw'@'localhost';
 FLUSH PRIVILEGES;
+
+/** Zadanie 6 **/
+ALTER TABLE cars ADD INDEX `bodyTypeIndex` (carBodyType); # index potrzebny do szybkiego wyszukania tanego typu nadwozia żądanego przez klienta (np. w wyszukiwarce online)
+ALTER TABLE customers ADD INDEX `surnameIndex` (surname); # index potrzebny do znalezienia ID klienta po jego nazwisku
+ALTER TABLE rental_data ADD INDEX `customerIndex` (customerID); # index potrzebny do określenia historii wynajmów danego klienta (np. określenie warunków promocji i zniżek)
+
+/** Zadanie 7 **/
+/* Załóżmy, że minimalna cena wynajmu wynosi 100zł. Stwórz trigger, który ustawi cenę wynajmu na 100zł, jeżeli ktoś będzie starał sie wprowadzić do bazy niższą kwotę. */
