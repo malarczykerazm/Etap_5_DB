@@ -142,7 +142,7 @@ having `number of customers on the domain` = (select max(customersAtDomain) from
 																					join contact_data cd on cu.contactID = cd.ID
 																					group by substring_index(email, '@', -1)
 																				)
-																				`customersAtDomainTable`
+																 				`customersAtDomainTable`
 											)
 ;
 
