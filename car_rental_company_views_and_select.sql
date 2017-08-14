@@ -38,7 +38,9 @@ select *, char_length(surname) as `worker's surname length` from employees where
 select * from employees where char_length(substring_index(surname, 'F', 1)) = 1;
 
 /* d) znajdź samochody z największym przebiegiem - przyjęto, że chodzi o 3 samochody */
-select * from cars order by mileage desc limit 3;
+select * from cars
+where mileage >= (select min(mileage) from (select * from cars order by mileage desc limit 3) `firstThreeMileages`)
+order by mileage desc;
 
 /* e) policz ilość samochodów których przebieg jest pomiędzy 200 a 300 tys. */
 select count(*) as `number of cars between 200.000 and 300.000 in mileage` from cars_between_200000_and_300000_mileage;
@@ -47,23 +49,40 @@ select count(*) as `number of cars between 200.000 and 300.000 in mileage` from 
 select agencyID, firstname, surname, positionID from employees where positionID = 3 order by agencyID;
 
 /* g) znajdź klientów z największa liczbą wypożyczeń - przyjęto, że chodzi o 5 klientów */
-select * from customers_with_all_rentals_number limit 5;
+select * from customers_with_all_rentals_number
+where `number of rentals` >= (select min(`number of rentals`) from (select * from customers_with_all_rentals_number limit 5) `fiveTopCustomers`);
 
 /* h) znajdź klientów, którzy wypożyczyli największą liczbę różnych samochodów - interpretuję różne samochody jako różne marki samochodów
 dla większego zróżnicowania uzyskanych wyników, przyjęto, że chodzi o 5 klientów */
 select ID, firstname, surname, count(distinct brand) as `number of rentals of unique cars' brand`
 from customers_with_all_rentals_data
 group by ID
-order by count(distinct brand) desc, ID
-limit 5;
+having `number of rentals of unique cars' brand` >= (select min(uniqeRentals) from (
+																					select count(distinct brand) uniqeRentals
+																					from customers_with_all_rentals_data
+																					group by ID
+																					order by uniqeRentals desc
+																					limit 5
+																					)
+																					`allUniqueRentalsTable`
+													)
+order by `number of rentals of unique cars' brand` desc, ID;
 
 /* i) znajdź samochody najczęściej wypożyczane - przyjęto, że chodzi o 3 samochody rozróżniane po ich ID */
 select c.ID, c.brand, c.model, c.productionYear, c.engineVolume, c.mileage, count(r.ID) as `number of rentals of the certain car`
 from cars c
 join rental_data r on c.ID = r.carID
 group by c.ID
-order by count(r.ID) desc, c.ID
-limit 3;
+having `number of rentals of the certain car` >= (select min(rentals) from (select count(r.ID) rentals
+																			from cars c
+																			join rental_data r on c.ID = r.carID
+																			group by c.ID
+																			order by rentals desc
+																			limit 3
+																			)
+                                                                            `allRentalsTable`
+												)
+order by `number of rentals of the certain car` desc, c.ID;
 
 /* j) znajdź klientów, którzy zapłacili najwięcej za wypożyczenia w tym roku - przyjęto, że chodzi o 5 klientów */
 select r.customerID, c.firstname, c.surname, sum(r.price) as `total amount of money paid for rentals this year`
@@ -71,6 +90,16 @@ from customers c
 join rental_data r on c.ID = r.customerID
 where year(r.dateSince) = year(curdate())
 group by r.customerID
+having `total amount of money paid for rentals this year` >= (select min(totalPrice) from (select sum(r.price) totalPrice
+																							from customers c
+																							join rental_data r on c.ID = r.customerID
+																							where year(r.dateSince) = year(curdate())
+																							group by r.customerID
+																							order by totalPrice desc
+																							limit 5
+                                                                                            )
+                                                                                            `totalPriceTable`
+															)
 order by sum(r.price) desc
 limit 5;
 
@@ -91,16 +120,31 @@ from customers c
 join rental_data r on c.ID = r.customerID
 where (r.fromAgencyID <> r.toAgencyID) and (r.toAgencyID is not null)
 group by c.ID
-order by count(r.ID) desc, c.ID
-limit 1;
+having `number of rentals from-to different agencies` = (select max(rentalsDifferentAgencies) from (
+																										select count(r.ID) rentalsDifferentAgencies
+																										from customers c
+																										join rental_data r on c.ID = r.customerID
+																										where (r.fromAgencyID <> r.toAgencyID) and (r.toAgencyID is not null)
+																										group by c.ID
+																									)
+																									`rentalsDifferentAgenciesTable`
+														)
+;
 
 /* o) sprawdź w jakiej domenie klienci maja najczęściej email */
 select substring_index(email, '@', -1) as `email domain`, count(cu.ID) as `number of customers on the domain`
 from customers cu
 join contact_data cd on cu.contactID = cd.ID
 group by substring_index(email, '@', -1)
-order by count(cu.ID) desc
-limit 1;
+having `number of customers on the domain` = (select max(customersAtDomain) from (
+																					select count(cu.ID) customersAtDomain
+																					from customers cu
+																					join contact_data cd on cu.contactID = cd.ID
+																					group by substring_index(email, '@', -1)
+																				)
+																				`customersAtDomainTable`
+											)
+;
 
 /* p) znajdź samochody, które mają co najmniej 2 opiekunów */
 select cs.carID, ca.brand, ca.model, count(cs.employeeID) as 'number of supervisors'
@@ -154,9 +198,9 @@ FOR EACH ROW
                SET NEW.price = 100;
            END IF;
        END;
-// DELIMITER ;
+// 
 
-DELIMITER //
+//
 CREATE TRIGGER updt_minimal_price BEFORE UPDATE ON rental_data
 FOR EACH ROW
        BEGIN

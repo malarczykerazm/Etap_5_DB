@@ -432,7 +432,7 @@ insert into cars (statusID, carBodyType, brand, model, productionYear, colour, e
 insert into cars (statusID, carBodyType, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'coupe', 'Mercury', 'Mariner', 2005, 'Red', 1.0, 132, 46616, 'MN73553');
 insert into cars (statusID, carBodyType, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'family', 'Dodge', 'Intrepid', 2002, 'Yellow', 1.5, 193, 62332, 'MN26954');
 insert into cars (statusID, carBodyType, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (2, 'minivan', 'Spyker', 'C8 Spyder', 2004, 'Mauv', 1.1, 95, 37085, 'CV87107');
-insert into cars (statusID, carBodyType, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Mitsubishi', 'Montero Sport', 2002, 'Indigo', 1.5, 145, 46129, 'CV54696');
+insert into cars (statusID, carBodyType, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'pickup', 'Mitsubishi', 'Montero Sport', 2002, 'Indigo', 1.5, 145, 46050, 'CV54696');
 insert into cars (statusID, carBodyType, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'minivan', 'Chevrolet', 'Corvette', 1997, 'Goldenrod', 2.2, 173, 320687, 'PO57911');
 insert into cars (statusID, carBodyType, brand, model, productionYear, colour, engineVolume, power, mileage, plateNumber) values (1, 'luxury', 'Mercury', 'Cougar', 1997, 'Red', 2.0, 211, 64593, 'SW32125');
 
